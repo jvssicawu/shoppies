@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import {
   ACTIVE,
   ADD_NOMINATION_ACTION,
@@ -10,29 +9,7 @@ import {
   REMOVE_NOMINATION_ACTION,
 } from '../Constants';
 import { appContext } from '../contexts/Store';
-
-const ButtonWrapper = styled.div`
-  background: #558999;
-  border: none;
-  border-radius: 1.5em;
-  padding: 0.5em;
-  max-width: 5em;
-  text-align: center;
-  &:hover {
-    background: #a8ccc5;
-    cursor: pointer;
-  }
-  &.disabled {
-    background: #9f9f9f;
-    pointer-events: none;
-  }
-  &.remove {
-    background: #c74343;
-  }
-  &.remove:hover {
-    background: #cca8a8;
-  }
-`;
+import ButtonWrapper from '../containers/ButtonWrapper';
 
 const handleNomination = (nominee, state, dispatch) => {
   const { id: nid } = nominee;

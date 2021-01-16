@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import {
   DEFAULT_LABEL,
   beginSearchMsg,
@@ -7,18 +6,14 @@ import {
   resultsTryAgainMsg,
 } from '../Constants';
 import { appContext } from '../contexts/Store';
+import Content from '../containers/Content';
 import Header from './Header';
 import Post from './Post';
-
-const PostsWrapper = styled.div`
-  margin: 2em;
-  width: 50%;
-`;
 
 const Posts = () => {
   const { state } = useContext(appContext);
   return (
-    <PostsWrapper>
+    <Content className="posts">
       <Header>Search Results</Header>
       {state.posts.length === 0 && !state.error && <p>{beginSearchMsg}</p>}
       {state.error ? (
@@ -35,7 +30,7 @@ const Posts = () => {
           />
         ))
       )}
-    </PostsWrapper>
+    </Content>
   );
 };
 

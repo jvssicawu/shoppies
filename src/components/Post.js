@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { fallBackImgSrc } from '../Constants';
 import Button from './Button';
+import { SubHeading } from './Header';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -32,13 +33,9 @@ const addFallbackImage = (e) => {
 
 const Post = ({ id, title, year, imageUrl, label }) => (
   <PostWrapper>
-    <Poster
-      src={imageUrl}
-      alt="Poster"
-      onError={addFallbackImage}
-    />
+    <Poster src={imageUrl} alt="Poster" onError={addFallbackImage} />
     <Column>
-      <h3>{`${title} (${year})`}</h3>
+      <SubHeading>{`${title} (${year})`}</SubHeading>
       <Button nominee={{ id, title, year, imageUrl }} label={label} />
     </Column>
   </PostWrapper>

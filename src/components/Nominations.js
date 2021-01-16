@@ -1,22 +1,17 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import { NOMINATION_LABEL, noNominationsMsg } from '../Constants';
+import Content from '../containers/Content';
 import { appContext } from '../contexts/Store';
 import Header from './Header';
 import Post from './Post';
 
-const NominationsWrapper = styled.div`
-  margin: 2em;
-  width: 50%;
-`;
-
 const Nominations = () => {
   const { state } = useContext(appContext);
   return (
-    <NominationsWrapper>
+    <Content className="nominations">
       <Header>Nominations</Header>
       {state.nominations.length === 0 && <p>{noNominationsMsg}</p>}
-      {state.nominations.map(({id, title, year, imageUrl}) => (
+      {state.nominations.map(({ id, title, year, imageUrl }) => (
         <Post
           key={id}
           id={id}
@@ -26,7 +21,7 @@ const Nominations = () => {
           label={NOMINATION_LABEL}
         />
       ))}
-    </NominationsWrapper>
+    </Content>
   );
 };
 

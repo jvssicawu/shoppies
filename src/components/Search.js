@@ -1,29 +1,23 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {
+  searchIconAlt,
+  searchIconSrc,
   searchPlaceholder,
+  searchTitle,
   SET_ERROR_ACTION,
   SET_POSTS_ACTION,
   SET_SEARCH_ACTION,
 } from '../Constants';
 import { appContext } from '../contexts/Store';
+import SearchWrapper from '../containers/SearchWrapper';
 
-const SearchWrapper = styled.div`
-  padding: 1em;
-  input {
-    padding: 0.5em;
-    padding-left: 1em;
-    font-size: 1em;
-    font-weight: 400;
-    border: solid 2px #a8ccc5;
-    border-radius: 30px;
-  }
-  input:focus {
-    outline: none;
-    box-shadow: 0 0 3pt 1pt #a8ccc5;
-  }
-  h3 {
-    margin: 0.5em;
+const InputWrapper = styled.div`
+  position: relative;
+  img {
+    position: absolute;
+    top: 8px;
+    left: 10px;
   }
 `;
 
@@ -50,13 +44,16 @@ const Search = () => {
   const { dispatch } = useContext(appContext);
   return (
     <SearchWrapper>
-      <h3>Movie Title</h3>
-      <input
-        type="text"
-        placeholder={searchPlaceholder}
-        onFocus={handleFocus}
-        onKeyDown={(event) => handleSubmit(event, dispatch)}
-      />
+      <h3>{searchTitle}</h3>
+      <InputWrapper>
+        <input
+          type="text"
+          placeholder={searchPlaceholder}
+          onFocus={handleFocus}
+          onKeyDown={(event) => handleSubmit(event, dispatch)}
+        />
+        <img src={searchIconSrc} alt={searchIconAlt} />
+      </InputWrapper>
     </SearchWrapper>
   );
 };

@@ -2,8 +2,12 @@ import styled from 'styled-components';
 
 export const Title = styled.h1``;
 
-const Header = styled.h2``;
+export const SubHeading = styled.h3`
+  color: ${(props) => props.theme.secondaryText};
+`;
 
-export const SubHeading = styled.h3``;
+const Header = styled.h2`
+  margin-top: 0;
+`;
 
 export default Header;
