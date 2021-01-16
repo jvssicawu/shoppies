@@ -6,7 +6,21 @@ module.exports = {
     title: 'Shoppies',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Shoppies Web App`,
+        short_name: `Shoppies`,
+        description: `A simple web app for nominating movies.`,
+        lang: `en`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `static/assets/logo.svg`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

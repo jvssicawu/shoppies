@@ -39,7 +39,7 @@ const Reducer = (state, action) => {
         ...state,
         showBanner: state.nominations.length - 1 === MAX_NOMINATIONS,
         nominations: state.nominations.filter(
-          ({ id }) => id !== action.payload.id
+          ({ id }) => id !== action.payload.id,
         ),
       };
     case HIDE_BANNER_ACTION:
